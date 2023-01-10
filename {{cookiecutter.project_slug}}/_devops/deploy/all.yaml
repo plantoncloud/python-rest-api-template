@@ -1,0 +1,19 @@
+container_port: 5000
+service_port: 80
+
+replicas: 1
+
+container_resource_limits:
+  cpu: 1
+  memory: 1Gi
+container_resource_requests:
+  cpu: 50m
+  memory: 256Mi
+
+#key value pairs of environment variables. key is the environment variable and the value is the value of environment variable.
+#ex: ENV: dev
+env_vars: {}
+
+#key value pairs of secret environment variables. key is the environment variable and the value is the id of the secret in the google secrets manager.
+#ex: DB_PASSWORD: mycompany-abc-dev-db-password
+secrets: {}

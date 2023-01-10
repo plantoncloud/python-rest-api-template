@@ -1,2 +1,3 @@
-# template-rest-api-python
-Code Project Template to quickly launch a REST API written in Python on Planton Cloud
+# template-rest-api-nodejs
+
+Code Project Template to quickly launch a REST API written in NodeJS on Planton Cloud.

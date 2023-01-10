@@ -7,12 +7,12 @@ app = Flask(__name__)
 todos = [
     {
         'id': 1,
-        'task': 'Learn Python',
+        'todo': 'Try Planton Cloud',
         'completed': False
     },
     {
         'id': 2,
-        'task': 'Learn Flask',
+        'todo': 'Go To Market 5X Faster',
         'completed': False
     }
 ]
@@ -32,12 +32,12 @@ def get_todo(todo_id):
 @app.route('/todos', methods=['POST'])
 def create_todo():
     data = request.get_json()
-    task = data['task']
-    if not task or len(task) < 3:
-        return 'Task must be at least 3 characters long', 400
+    todo = data['todo']
+    if not todo or len(todo) < 3:
+        return 'Todo must be at least 3 characters long', 400
     todo = {
         'id': todos[-1]['id'] + 1,
-        'task': task,
+        'todo': todo,
         'completed': False
     }
     todos.append(todo)
@@ -49,10 +49,10 @@ def update_todo(todo_id):
     if not todo:
         return 'Todo not found', 404
     data = request.get_json()
-    task = data['task']
-    if not task or len(task) < 3:
-        return 'Task must be at least 3 characters long', 400
-    todo['task'] = task
+    todo = data['todo']
+    if not todo or len(todo) < 3:
+        return 'Todo must be at least 3 characters long', 400
+    todo['todo'] = todo
     return jsonify(todo)
 
 @app.route('/todos/<int:todo_id>', methods=['DELETE'])

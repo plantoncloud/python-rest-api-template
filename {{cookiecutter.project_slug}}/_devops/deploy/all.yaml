@@ -1,4 +1,4 @@
-container_port: 5000
+container_port: 8080
 service_port: 80
 
 replicas: 1

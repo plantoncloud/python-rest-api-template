@@ -2,6 +2,37 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# this is for demo purposes. remove it when using for production use.
+default_routes = [
+    {
+        'description': 'get all todos',
+        'method': 'GET',
+        'path': '/todos'
+    },
+    {
+        'description': 'get details of a todo',
+        'method': 'GET',
+        'path': '/todos/<int:todo_id>'
+    },
+    {
+        'description': 'create a new todo',
+        'method': 'POST',
+        'path': '/todos'
+    }
+    ,
+    {
+        'description': 'update a todo',
+        'method': 'PUT',
+        'path': '/todos/<int:todo_id>'
+    }
+    ,
+    {
+        'description': 'delete a todo',
+        'method': 'DELETE',
+        'path': '/todos/<int:todo_id>'
+    }
+]
+
 # This is an in-memory store for the purposes of this example.
 # You would typically use a database like MySQL or MongoDB in a real app.
 todos = [
@@ -16,6 +47,10 @@ todos = [
         'completed': False
     }
 ]
+
+@app.route('/', methods=['GET'])
+def get_default_routes():
+    return jsonify(default_routes)
 
 @app.route('/todos', methods=['GET'])
 def get_todos():
